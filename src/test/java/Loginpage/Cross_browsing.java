@@ -20,7 +20,7 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class Cross_browsing {
- 
+  
 	WebDriver driver;
 	ExtentReports extent;
 	ExtentTest test;

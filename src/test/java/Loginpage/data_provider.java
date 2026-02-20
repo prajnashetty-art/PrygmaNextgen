@@ -19,7 +19,7 @@ public class data_provider {
 
 	WebDriver driver;
 	ExtentReports extent;
-	ExtentTest test;
+	ExtentTest test; 
 	 
 	@BeforeClass 
 	public void setup()

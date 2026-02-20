@@ -19,7 +19,7 @@ public class using_testng {
 	WebDriver driver;
 	ExtentReports extent;
 	ExtentTest test;
-
+ 
 	@BeforeMethod
 	public void setup() throws Exception
 	{ 
