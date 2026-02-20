@@ -60,7 +60,7 @@ public class data_provider {
 		data[2][0]="tevoxe69294@fentaoba.com";
 		data[2][1]="teco@699";
 		return data;
-	}
+	} 
 	@AfterClass
 	public void tearDown()
 	{

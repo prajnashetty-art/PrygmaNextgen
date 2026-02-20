@@ -20,7 +20,7 @@ public class data_driven {
  
 		WebDriver driver;
 		ExtentReports extent;
-		ExtentTest test;
+		ExtentTest test; 
 		
 		String projectpath=System.getProperty("user.dir");
 		extent=new ExtentReports();

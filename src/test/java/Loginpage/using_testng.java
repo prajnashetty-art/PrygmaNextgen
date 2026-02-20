@@ -38,7 +38,7 @@ public class using_testng {
 		driver.get("https://www.prygmanextgen.com/");
 		driver.navigate().to("https://www.prygmanextgen.com/signin");
 	}
-	@Test
+	@Test 
 	public void inputcredentials()
 	{
 		try {

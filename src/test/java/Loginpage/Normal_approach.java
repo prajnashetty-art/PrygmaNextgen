@@ -21,7 +21,7 @@ public class Normal_approach {
 	    extent.attachReporter(spark);
 		
 		ExtentTest test=extent.createTest("Login Test - Normal Approach");
-		
+		 
 		ChromeDriver driver=new ChromeDriver();
 		try{
 			driver.manage().window().maximize();

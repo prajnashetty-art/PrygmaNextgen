@@ -24,7 +24,7 @@ public class Cross_browsing {
 	WebDriver driver;
 	ExtentReports extent;
 	ExtentTest test;
-
+ 
 	@BeforeMethod
 	public void attachreport()
 	{
