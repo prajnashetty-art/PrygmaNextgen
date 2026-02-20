@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test  name="Test1">
+  <parameter name="browsers" value="chrome"></parameter>
+  <classes>
+  <class name="Loginpage.Cross_browsing"></class>
+  </classes>
+  </test> <!-- Test -->
+  
+  <test  name="Test2">
+  <parameter name="browsers" value="edge"></parameter>
+  <classes>
+  <class name="Loginpage.Cross_browsing"></class>
+  </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
