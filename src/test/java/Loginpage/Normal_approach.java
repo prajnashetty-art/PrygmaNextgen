@@ -12,7 +12,7 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 public class Normal_approach {
 
 	public static void main(String[] args) {
-		 
+		  
 		String projectpath=System.getProperty("user.dir");
 		ExtentReports extent=new ExtentReports();
 		ExtentSparkReporter spark=new ExtentSparkReporter(projectpath+"/Reports/Report_1.html");

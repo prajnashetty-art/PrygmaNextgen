@@ -21,7 +21,7 @@ public class data_provider {
 	ExtentReports extent;
 	ExtentTest test;
 	 
-	@BeforeClass
+	@BeforeClass 
 	public void setup()
 	{
 		String projectpath=System.getProperty("user.dir");

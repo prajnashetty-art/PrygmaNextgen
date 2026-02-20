@@ -22,7 +22,7 @@ public class using_testng {
 
 	@BeforeMethod
 	public void setup() throws Exception
-	{
+	{ 
 		String projectpath=System.getProperty("user.dir");
 		extent=new ExtentReports();
 		ExtentSparkReporter spark=new ExtentSparkReporter(projectpath+"/Reports/Report_3.html");
