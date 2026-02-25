@@ -117,12 +117,12 @@ public class Help_and_support {
 				WebElement toastmsg=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body//section[@aria-label='Notifications alt+T']//div//div[1]")));
 				String textmsg=toastmsg.getText();
 				Assert.assertTrue(textmsg.contains("Support ticket submitted successfully"));
-				System.out.println("Support ticket submitted successfully");
-				test.pass("Support ticket submitted successfully");
+				System.out.println("Submit ticket submitted successfully");
+				test.pass("Submit ticket submitted successfully");
 	    	}catch(AssertionError e)
 	    	{
-	    		System.out.println("Support ticket submission failed");
-				test.fail("Support ticket submission failed");
+	    		System.out.println("Submit ticket submission failed");
+				test.fail("Submit ticket submission failed");
 				
 	    	}
 	    
@@ -311,6 +311,41 @@ public class Help_and_support {
 	    	test.fail("Scrolling failed");
 	    	throw e;
 	    }
+	    }
+	    @Test(priority=14)
+	    public void testLinksNavigation() throws InterruptedException {
+	        try {
+	            JavascriptExecutor js = (JavascriptExecutor) driver;
+	            js.executeScript("window.scrollBy(0,500)", "");
+	            Thread.sleep(2000);
+	            // Browse Courses Link
+	            driver.findElement(By.xpath("//a[normalize-space()='Browse Courses']")).click();
+	            Thread.sleep(2000);
+	            Assert.assertTrue(driver.getCurrentUrl().contains("courses"));
+	            System.out.println("Browse courses link is visible and navigates to courses page");
+	            test.pass("Browse courses link is visible and navigates to courses page");
+	            driver.navigate().back();
+	            Thread.sleep(3000);
+	            //View Workshops Link
+	            driver.findElement(By.xpath("//a[normalize-space()='View Workshops']")).click();
+	            Thread.sleep(2000);
+	            Assert.assertTrue(driver.getCurrentUrl().contains("workshops"));
+	            System.out.println("View Workshops link is visible and navigates to workshops page");
+	            test.pass("View Workshops link is visible and navigates to workshops page");
+	            
+	            driver.navigate().back();
+	            Thread.sleep(3000);
+	            //Read Blog Link
+	            driver.findElement(By.xpath("//a[normalize-space()='Read Blog']")).click();
+	            Thread.sleep(2000);
+	            Assert.assertTrue(driver.getCurrentUrl().contains("blog"));
+	            System.out.println("Read blog link is visible and navigates to blog page");
+	            test.pass("Read blog link is visible and navigates to blog page");
+
+	        } catch (AssertionError e) {
+	            System.out.println("Links are not working");
+	            throw e;
+	        }
 	    }
 	   @AfterMethod
 	   public void exit()
