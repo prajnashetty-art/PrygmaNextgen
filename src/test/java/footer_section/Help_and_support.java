@@ -315,6 +315,7 @@ public class Help_and_support {
 	    @Test(priority=14)
 	    public void testLinksNavigation() throws InterruptedException {
 	        try {
+	        	test=extent.createTest("Links functionality");
 	            JavascriptExecutor js = (JavascriptExecutor) driver;
 	            js.executeScript("window.scrollBy(0,500)", "");
 	            Thread.sleep(2000);
