@@ -139,7 +139,7 @@ public class Course_page_tests {
 	    	throw e;
 	    }
 	    }
-	    @Test(priority = 6)
+	    @Test(priority = 6) 
 	    public void alllinks()
 	    {
 	    	test = extent.createTest("Capture all links");	    	
