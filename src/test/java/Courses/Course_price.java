@@ -77,7 +77,7 @@ public class Course_price {
             throw e;
         }
     }
-    
+     
     @AfterClass
     public void tearDown() {
     	extent.flush();
