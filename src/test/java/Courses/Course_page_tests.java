@@ -159,7 +159,7 @@ public class Course_page_tests {
 	    		System.out.println("Failed to capture all links");
 	    		test.fail("Failed to capture all links");
 	    	}
-	    }
+	    } 
 	   @Test(priority=7)
 	    public void testLinksNavigation() throws InterruptedException {
 	        try {
