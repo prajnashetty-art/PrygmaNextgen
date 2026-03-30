@@ -27,7 +27,7 @@ public class Course_price {
     public void setUp() {
     	extent=new ExtentReports();
     	String projectpath=System.getProperty("user.dir");
-    	spark=new ExtentSparkReporter(projectpath+"/Reports/courseprice_CoursePage.html");
+    	spark=new ExtentSparkReporter(projectpath+"/Reports/coursePrice_CoursePage.html");
     	spark.config().setTheme(Theme.STANDARD);
     	spark.config().setDocumentTitle("Course Price List in Courses Page");
     	extent.attachReporter(spark);
