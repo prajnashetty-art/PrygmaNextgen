@@ -46,7 +46,7 @@ public class SignUp {
 		driver.manage().window().maximize();
 		driver.get("https://www.prygmanextgen.com/");
 		driver.navigate().to("https://www.prygmanextgen.com/signup");
-	}
+	} 
 	@Test(priority=1)
 	public void inputdata() throws Exception {
 	    test = extent.createTest("Verify Sign Up with valid inputs");
