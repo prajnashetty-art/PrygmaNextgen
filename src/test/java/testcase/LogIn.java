@@ -27,7 +27,6 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class LogIn {
-
 	WebDriver driver;
 	ExtentReports extent;
 	ExtentTest test;
@@ -93,7 +92,7 @@ public class LogIn {
 		    test.pass("Appropriate error msg is displayed");
 		}catch(AssertionError e){
 			System.out.println("No appropriate error msg");
-		    test.pass("No appropriate error msg");
+		    test.fail("No appropriate error msg");
 	    }
 	}
 	@Test(priority=4)
@@ -109,7 +108,7 @@ public class LogIn {
 		    test.pass("Appropriate error msg is displayed");
 		}catch(AssertionError e){
 			System.out.println("No appropriate error msg");
-		    test.pass("No appropriate error msg");
+		    test.fail("No appropriate error msg");
 	    }
 	}
 	@Test(priority=5)
@@ -206,8 +205,8 @@ public class LogIn {
     	}
     } 
 	@Test(priority=11)
-	public void interfaceOfcreateaccount() throws InterruptedException {
-		test=extent.createTest("Interace of Create a new button");
+	public void interfaceOfForgotYourPassword() throws InterruptedException {
+		test=extent.createTest("Interace of Forgot Your Password");
 		try {
 			driver.findElement(By.xpath("//a[normalize-space()='Forgot your password?']")).click();
 			Thread.sleep(1000);
@@ -216,7 +215,7 @@ public class LogIn {
 			test.pass("Forgot password link navigates to reset password window");
 		}catch (AssertionError e) {
 			System.out.println("Forgot password link is not working");
-			test.pass("Forgot password link is not working");
+			test.fail("Forgot password link is not working");
 		}
 	}
 	@Test(priority=12)
@@ -237,6 +236,20 @@ public class LogIn {
 	        System.out.println("Failed to navigate to Google login window");
 	        test.fail("Failed to navigate to Google login window");
 	    }
+	}
+	@Test(priority=13)
+	public void interfaceOfCreateNewAccount() throws InterruptedException {
+		test=extent.createTest("Interace of create a new account");
+		try {
+			driver.findElement(By.linkText("create a new account")).click();
+			Thread.sleep(1000);
+			Assert.assertTrue(driver.getCurrentUrl().contains("signup"));
+			System.out.println("Create a new account link navigates to Sign Up page");
+			test.pass("Create a new account link navigates to Sign Up page");
+		}catch (AssertionError e) {
+			System.out.println("Create a new account link doesn't navigates to Sign Up page");
+			test.fail("Create a new account link doesn't navigates to Sign Up page");
+		}
 	}
 	@AfterMethod
 	public void result(){
