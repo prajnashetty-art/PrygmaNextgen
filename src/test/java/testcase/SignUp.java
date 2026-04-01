@@ -1,6 +1,7 @@
 package testcase;
 
 import java.time.Duration;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -26,11 +27,9 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class SignUp {
-
 	WebDriver driver;
 	ExtentReports extent;
 	ExtentTest test;
-	
 	@BeforeClass
 	public void reportsetup() {
 		String projectpath=System.getProperty("user.dir");
@@ -71,7 +70,6 @@ public class SignUp {
 	        test.fail("Unexpected failure");
 	    }
 	}
-
 	@Test(priority=2)
 	public void emptyFieldsSignup() throws InterruptedException {
 		test = extent.createTest("Verify with Empty fields");
@@ -83,27 +81,27 @@ public class SignUp {
 		    Assert.assertFalse(CreateAccountBtn.isEnabled());
 			System.out.println("Create Account button is disabled when the mandatory fields are empty");
 			test.pass("Create Account button is disabled when the mandatory fields are empty");
-			}catch (AssertionError e){
-				System.out.println("Create Account button is enabled when the mandatory fields are empty");
-				test.fail("Create Account button is enabled when the mandatory fields are empty");
-				throw e;
-			}
+		}catch (AssertionError e){
+			System.out.println("Create Account button is enabled when the mandatory fields are empty");
+			test.fail("Create Account button is enabled when the mandatory fields are empty");
+			throw e;
 		}
-	 @Test(priority=3)
-	    public void InvalidName() {
-	    	test=extent.createTest("Verify with invalid name");
-	    	try {
-	    		driver.findElement(By.xpath("//input[@id='name']")).sendKeys("G@ivaa");
-	    		WebElement errorMsg1= driver.findElement(By.xpath("//p[@class='mt-1 text-sm text-red-600']")); 
-				Assert.assertTrue(errorMsg1.isDisplayed());
-				System.out.println("Appropriate error msg displayed");
-				test.pass("Appropriate error msg displayed");
-	    	}catch(AssertionError e){
-	    		System.out.println("No appropriate error msg");
-				test.fail("No appropriate error msg");
-				throw e;	
-	    	}
+	}
+	@Test(priority=3)
+	 public void InvalidName() {
+	    test=extent.createTest("Verify with invalid name");
+	    try {
+	    	driver.findElement(By.xpath("//input[@id='name']")).sendKeys("G@ivaa");
+	    	WebElement errorMsg1= driver.findElement(By.xpath("//p[@class='mt-1 text-sm text-red-600']")); 
+			Assert.assertTrue(errorMsg1.isDisplayed());
+			System.out.println("Appropriate error msg displayed");
+			test.pass("Appropriate error msg displayed");
+	   }catch(AssertionError e){
+	    	System.out.println("No appropriate error msg");
+			test.fail("No appropriate error msg");
+			throw e;	
 	    }
+	}
 	@Test(priority=4)
     public void invalidemail() throws InterruptedException{
     	test=extent.createTest("Verify with invalid email");
@@ -138,10 +136,10 @@ public class SignUp {
 	        Assert.assertEquals(actualMessage, expectedMessage);
 	        System.out.println("Appropriate error msg displayed");
 	        test.pass("Appropriate error msg displayed");
-	    } catch (Exception e) {
-	        System.out.println("No appropriate error msg");
-	        test.fail("No appropriate error msg");
-	        }
+	 }catch (Exception e) {
+		 System.out.println("No appropriate error msg");
+	     test.fail("No appropriate error msg");
+	   }
 	}
 	@Test(priority=6)
 	public void weakPasswordSignup() {
@@ -156,7 +154,7 @@ public class SignUp {
 	        Assert.assertTrue(errorMsg.isDisplayed());
 	        System.out.println("Signup failed as expected due to weak password");
 	        test.pass("Signup failed as expected due to weak password");
-	    } catch (Exception e) {
+	    }catch (Exception e) {
 	    	System.out.println("No intruction for weak password");
 	        test.fail("No intruction for weak password");
 	    }
@@ -176,29 +174,28 @@ public class SignUp {
 		    Assert.assertFalse(CreateAccountBtn.isEnabled());
 			System.out.println("Create Account button is disabled for unchecked terms");
 			test.pass("Create Account button is disabled for unchecked terms");
-			}catch (AssertionError e) {
-				System.out.println("Create Account button is enabled for unchecked terms");
-				test.pass("Create Account button is enabled for unchecked terms");
-			}
-	    }
+	  }catch (AssertionError e) {
+			System.out.println("Create Account button is enabled for unchecked terms");
+			test.fail("Create Account button is enabled for unchecked terms");
+		}
+	}
 	@Test(priority=8)
-    public void verifyPageLoad()
-    {
+    public void verifyPageLoad(){
         test = extent.createTest("Verify SignUp page loads");
         String currentUrl = driver.getCurrentUrl();
-     try {
-        Assert.assertTrue(currentUrl.contains("/signup"));
-        System.out.println("Sign Up page loaded successfully");
-        test.pass("Sign Up page loaded successfully");
-    }catch (AssertionError e)
-      {
-    	System.out.println("Sign Up page loading failed");
-        test.fail("Sign Up page loading failed");
-        throw e;
-      }
-    }
-	 @Test(priority=9)
-	  public void verifyTitle(){
+        try {
+            Assert.assertTrue(currentUrl.contains("/signup"));
+            System.out.println("Sign Up page loaded successfully");
+            test.pass("Sign Up page loaded successfully");
+       }catch (AssertionError e)
+         {
+       	System.out.println("Sign Up page loading failed");
+           test.fail("Sign Up page loading failed");
+           throw e;
+         }
+     }
+     @Test(priority=9)
+	 public void verifyTitle(){
 		 test = extent.createTest("Verify Sign Up page title");
 	     String title = driver.getTitle();
 	     try {
@@ -206,11 +203,11 @@ public class SignUp {
  	         System.out.println("Page title is correct");
  	         test.pass("Page title is correct");
         }catch (AssertionError e){
-        	System.out.println("Page title is correct");
-	        test.fail("Page title is correct");
-	        throw e;     	 
-	 }
-	 }
+        	 System.out.println("Page title is correct");
+	         test.fail("Page title is correct");
+	         throw e;     	 
+	    }
+    }
 	@Test(priority=10)
     public void verifyHeader() {
 		test = extent.createTest("Verify Sign Up header");
@@ -221,9 +218,9 @@ public class SignUp {
 	          System.out.println("Header 'Create Account' is visible");
 	          test.pass("Header 'Create Account' is visible");
         }catch(AssertionError e){
-        	System.out.println("Header 'Create Account' is not visible");
-	        test.fail("Header 'Create Account' is not visible");
-        	throw e;
+        	 System.out.println("Header 'Create Account' is not visible");
+	         test.fail("Header 'Create Account' is not visible");
+        	 throw e;
         }
 	}
 	@Test(priority=11)
@@ -247,16 +244,15 @@ public class SignUp {
 	  		Set <Cookie> cookies=driver.manage().getCookies();
 	  		System.out.println("number of cookies "+ cookies.size());
 	  		test.pass("No.of cookies captured");
-	   
 	      for(Cookie cookie:cookies){
 	      	System.out.println(cookie.getName()+":"+cookie.getValue());
 	      	System.out.println("cookies are captured");
 	      	test.pass("Cookies are captured");
 	      }
-	  	}catch(Exception e){
-	      	System.out.println("cookies are not captured");
-	      	test.fail("Cookies are not captured");
-	      }
+	 }catch(Exception e){
+	     System.out.println("cookies are not captured");
+	     test.fail("Cookies are not captured");
+	   }
 	}
     @Test(priority=13) 
     public void alllinks(){
@@ -271,12 +267,92 @@ public class SignUp {
     	}
 	    	 System.out.println("Captured all links successfully");
 	    	 test.pass("Captured all links successfully");
-    	}catch(Exception e){
-    		e.printStackTrace();
-    		System.out.println("Failed to capture all links");
-    		test.fail("Failed to capture all links");
+    }catch(Exception e){
+    	System.out.println("Failed to capture all links");
+    	test.fail("Failed to capture all links");
     	}
-    } 
+    }
+    @Test(priority=14)
+	public void interfaceOfsigninaccount() throws InterruptedException {
+		test=extent.createTest("Interace of Sign in to your account");
+		try {
+			driver.findElement(By.xpath("//a[normalize-space()='Forgot your password?']")).click();
+			Thread.sleep(1000);
+			Assert.assertTrue(driver.getCurrentUrl().contains("forgot-password"));
+			System.out.println("Forgot password link navigates to reset password window");
+			test.pass("Forgot password link navigates to reset password window");
+		}catch (AssertionError e) {
+			System.out.println("Forgot password link is not working");
+			test.fail("Forgot password link is not working");
+		}
+	}
+	@Test(priority=15)
+	public void interfaceOfSigninToYourccount() throws InterruptedException {
+		test=extent.createTest("Interace of Signin to your account");
+		try {
+			driver.findElement(By.linkText("sign in to your account")).click();
+			Thread.sleep(1000);
+			Assert.assertTrue(driver.getCurrentUrl().contains("signin"));
+			System.out.println("Sign in to your account link navigates to Sign In page");
+			test.pass("Sign in to your account link navigates to Sign In page");
+		}catch (AssertionError e) {
+			System.out.println("Sign in to your account link doesn't navigates to Sign In page");
+			test.fail("Create a new account link doesn't navigates to Sign Up page");
+		}
+	}
+	@Test(priority=16)
+	public void interfaceofTerms() throws InterruptedException {
+		test=extent.createTest("Interace of Terms of Service");
+		try {
+			JavascriptExecutor js=(JavascriptExecutor)driver;
+			js.executeScript("window.scrollBy(0,300)", "");
+			Thread.sleep(2000);
+			driver.findElement(By.linkText("Terms of Service")).click();
+			Thread.sleep(1000);
+			Assert.assertTrue(driver.getCurrentUrl().contains("terms"));
+			System.out.println("Terms of Service link navigates to Terms page");
+			test.pass("Terms of Service link navigates to Terms page");
+		}catch (AssertionError e) {
+			System.out.println("Terms of Service link doesn't navigates to Terms page");
+			test.fail("Terms of Service link doesn't navigates to Terms page");
+		}
+	}
+	@Test(priority=17)
+	public void interfaceofPrivacyPolicy() throws InterruptedException {
+		test=extent.createTest("Interace of Privacy Policy");
+		try {
+			JavascriptExecutor js=(JavascriptExecutor)driver;
+			js.executeScript("window.scrollBy(0,300)", "");
+			Thread.sleep(2000);
+			driver.findElement(By.linkText("Privacy Policy")).click();
+			Thread.sleep(1000);
+			Assert.assertTrue(driver.getCurrentUrl().contains("privacy"));
+			System.out.println("Privacy Policy link navigates to privacy policy page");
+			test.pass("Privacy Policy link navigates to privacy policy page");
+		}catch (AssertionError e) {
+			System.out.println("Privacy Policy link doesn't navigates to privacy policy page");
+			test.fail("Privacy Policy link doesn't navigates to privacy policy page");
+		}
+	}
+	@Test(priority=18)
+	public void loginViaGoogle() throws InterruptedException {
+	    test = extent.createTest("Interface of Login via Google account");
+	    try {
+	        driver.findElement(By.xpath("//span[normalize-space()='Continue with Google']")).click();
+	        Thread.sleep(5000);
+	        Set<String> windowHandles = driver.getWindowHandles();
+	        Iterator<String> iterator = windowHandles.iterator();
+	        String parentWindow = iterator.next();
+	        String childWindow = iterator.next();
+	        driver.switchTo().window(childWindow);
+	        Assert.assertTrue(driver.getTitle().contains("Google"));
+	        System.out.println("Navigated to Google login window successfully");
+	        test.pass("Navigated to Google login window successfully");
+	    }catch (AssertionError e) {
+	        System.out.println("Failed to navigate to Google login window");
+	        test.fail("Failed to navigate to Google login window");
+	    }
+	}
 	@AfterMethod
 	public void result(){
 		driver.quit();
