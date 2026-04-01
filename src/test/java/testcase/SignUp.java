@@ -56,14 +56,11 @@ public class SignUp {
 	        driver.findElement(By.id("email")).sendKeys("rotwey@f8entaoba.com");
 	        driver.findElement(By.id("password")).sendKeys("Role@123");
 	        driver.findElement(By.id("confirmPassword")).sendKeys("Role@123");
-
 	        JavascriptExecutor js=(JavascriptExecutor) driver;
 	        js.executeScript("window.scrollBy(0,300)", "");
 	        Thread.sleep(1000);
 	        driver.findElement(By.id("terms")).click();
 	        driver.findElement(By.xpath("//button[@type='submit']")).click();
-
-	        // Wait for either redirect or error
 	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	        if (wait.until(ExpectedConditions.urlContains("courses"))) {
 	            System.out.println("Registered successfully and landed on courses page");
@@ -155,7 +152,6 @@ public class SignUp {
 	        JavascriptExecutor js = (JavascriptExecutor) driver;
 	        js.executeScript("window.scrollBy(0,300)", "");
 	        driver.findElement(By.id("password")).sendKeys("12345");
-	        
 	        WebElement errorMsg = driver.findElement(By.xpath("//ul[@class='list-disc list-inside ml-2 space-y-1']"));
 	        Assert.assertTrue(errorMsg.isDisplayed());
 	        System.out.println("Signup failed as expected due to weak password");
@@ -271,7 +267,6 @@ public class SignUp {
 	    	for(int i=0; i<alltags.size();i++) {
 	    		 String href = alltags.get(i).getAttribute("href");
 	             String text = alltags.get(i).getText();
-
 	             System.out.println("Link: " + href + " | Text: " + text);
     	}
 	    	 System.out.println("Captured all links successfully");
