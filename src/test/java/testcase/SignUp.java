@@ -51,10 +51,13 @@ public class SignUp {
 	public void inputdata() throws Exception {
 	    test = extent.createTest("Verify Sign Up with valid inputs");
 	    try {
+	    	String password = System.getenv("password");	//Fetch environment variables
+	    	String confirmpassword = System.getenv("confirmpassword");
+	    	
 	        driver.findElement(By.id("name")).sendKeys("Dia K");
 	        driver.findElement(By.id("email")).sendKeys("rotwey@f8entaoba.com");
-	        driver.findElement(By.id("password")).sendKeys("Role@123");
-	        driver.findElement(By.id("confirmPassword")).sendKeys("Role@123");
+	        driver.findElement(By.id("password")).sendKeys(password);
+	        driver.findElement(By.id("confirmPassword")).sendKeys(confirmpassword);
 	        JavascriptExecutor js=(JavascriptExecutor) driver;
 	        js.executeScript("window.scrollBy(0,300)", "");
 	        Thread.sleep(1000);
@@ -122,13 +125,14 @@ public class SignUp {
 	public void passwordMismatchSignup() {
 		test = extent.createTest("Verify password mismatch");
 	    try {
+	    	String password1=System.getenv("password1");
+	    	String confirmpassword1=System.getenv("confirmpassword1");
 	        driver.findElement(By.id("name")).sendKeys("Mismatch User");
 	        driver.findElement(By.id("email")).sendKeys("mismatch@test.com");
 	        JavascriptExecutor js = (JavascriptExecutor) driver;
 	        js.executeScript("window.scrollBy(0,300)", "");
-	        driver.findElement(By.id("password")).sendKeys("Password@123");
-	        driver.findElement(By.id("confirmPassword")).sendKeys("Password@456");
-	        //driver.findElement(By.xpath("//button[@type='submit']")).click();
+	        driver.findElement(By.id("password")).sendKeys(password1);
+	        driver.findElement(By.id("confirmPassword")).sendKeys(confirmpassword1);
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	        WebElement errorMsg = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Passwords do not match')]")));
 	        String actualMessage = errorMsg.getText();
@@ -163,10 +167,12 @@ public class SignUp {
 	public void uncheckedTermsSignup() throws InterruptedException {
 	    test = extent.createTest("Verify unchecked terms");
 	    try {
+	    	String password = System.getenv("password");
+	    	String confirmpassword = System.getenv("confirmpassword");
 		    driver.findElement(By.id("name")).sendKeys("User");
 		    driver.findElement(By.id("email")).sendKeys("user@test.com");
-		    driver.findElement(By.id("password")).sendKeys("ValidPass123!");
-		    driver.findElement(By.id("confirmPassword")).sendKeys("ValidPass123!");
+		    driver.findElement(By.id("password")).sendKeys(password);
+		    driver.findElement(By.id("confirmPassword")).sendKeys(confirmpassword);
 		    JavascriptExecutor js=(JavascriptExecutor)driver;
 			js.executeScript("window.scrollBy(0,300)", "");
 			Thread.sleep(2000);
@@ -189,9 +195,9 @@ public class SignUp {
             test.pass("Sign Up page loaded successfully");
        }catch (AssertionError e)
          {
-       	System.out.println("Sign Up page loading failed");
-           test.fail("Sign Up page loading failed");
-           throw e;
+       		System.out.println("Sign Up page loading failed");
+            test.fail("Sign Up page loading failed");
+            throw e;
          }
      }
      @Test(priority=9)
@@ -267,9 +273,9 @@ public class SignUp {
     	}
 	    	 System.out.println("Captured all links successfully");
 	    	 test.pass("Captured all links successfully");
-    }catch(Exception e){
-    	System.out.println("Failed to capture all links");
-    	test.fail("Failed to capture all links");
+      }catch(Exception e){
+    	  System.out.println("Failed to capture all links");
+    	  test.fail("Failed to capture all links");
     	}
     }
     @Test(priority=14)
