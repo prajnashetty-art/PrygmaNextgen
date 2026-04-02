@@ -52,8 +52,9 @@ public class LogIn {
 	{
 		test=extent.createTest("Verify login with valid inputs");
 		try {
+			String password=System.getenv("passsword");	//to fetch environment variable
 			driver.findElement(By.id("email")).sendKeys("gocoxir121@fentaoba.com");
-			driver.findElement(By.id("password")).sendKeys("goco@123");
+			driver.findElement(By.id("password")).sendKeys(password);
 			driver.findElement(By.id("remember-me")).click();
 			driver.findElement(By.xpath("//button[@type='submit']")).click();
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -100,6 +101,7 @@ public class LogIn {
 	    test = extent.createTest("Verify sign-in with invalid passsword format");
 	    try {
 	    	driver.findElement(By.id("email")).sendKeys("gocoxir121@fentaoba.com");
+	    	driver.findElement(By.id("password")).sendKeys("goco123");
 	    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//form[@class='mt-8 space-y-6']")));
 		    WebElement errormsg =driver.findElement(By.xpath("//form[contains(@class,'mt-8 space-y-6')]"));
