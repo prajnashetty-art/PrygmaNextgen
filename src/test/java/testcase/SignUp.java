@@ -53,8 +53,7 @@ public class SignUp {
 	    try {
 	    	String password = System.getenv("password");	//Fetch environment variables
 	    	String confirmpassword = System.getenv("confirmpassword");
-	    	
-	        driver.findElement(By.id("name")).sendKeys("Dia K");
+	    	driver.findElement(By.id("name")).sendKeys("Dia K");
 	        driver.findElement(By.id("email")).sendKeys("rotwey@f8entaoba.com");
 	        driver.findElement(By.id("password")).sendKeys(password);
 	        driver.findElement(By.id("confirmPassword")).sendKeys(confirmpassword);
