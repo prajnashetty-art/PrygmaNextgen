@@ -33,6 +33,7 @@ public class SignUp {
 	@BeforeClass
 	public void reportsetup() {
 		String projectpath=System.getProperty("user.dir");
+		//Modified
 		extent=new ExtentReports();
 		ExtentSparkReporter spark=new ExtentSparkReporter(projectpath+"/Reports/SignUp_Report.html");
 		spark.config().setTheme(Theme.STANDARD);
