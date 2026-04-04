@@ -12,7 +12,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
-import Signupsigncourses.ExcelUtil;
+import Courses.ExcelUtil;
 
 public class data_driven {
  
@@ -43,7 +43,7 @@ public class data_driven {
 		
 		try {
 			driver.get("https://www.prygmanextgen.com/signin");
-			driver.findElement(By.xpath("/html/body/div[1]/nav/div/div/div[2]/div[5]/div/div[1]")).click();
+			driver.findElement(By.xpath("/html/body/div[1]/nav/div/div/div[2]/div[5]/div/div[1]")).click();//link
 			driver.findElement(By.id("email")).sendKeys(email);
 			driver.findElement(By.id("password")).sendKeys(password);
 			driver.findElement(By.id("remember-me")).click();

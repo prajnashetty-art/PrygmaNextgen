@@ -23,7 +23,7 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class Terms {
-	  WebDriver driver;
+	WebDriver driver;
 	  ExtentReports extent;
 	  ExtentSparkReporter spark;
 	  ExtentTest test;

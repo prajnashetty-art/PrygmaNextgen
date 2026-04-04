@@ -218,7 +218,7 @@ public class Course_page_tests {
 	        }
 	    }
 	  
-	    @AfterMethod
+	    @AfterMethod 
 	    public void tearDown() 
 	    {
 	        driver.quit(); 

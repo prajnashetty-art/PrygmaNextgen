@@ -31,7 +31,8 @@ public class Normal_approach {
 		try {
 			driver.get("https://www.prygmanextgen.com/");
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-			driver.findElement(By.xpath("/html/body/div[1]/nav/div/div/div[2]/div[5]/div/div[2]")).click();
+		//	driver.findElement(By.xpath("/html/body/div[1]/nav/div/div/div[2]/div[5]/div/div[2]")).click();
+			driver.findElement(By.xpath("//div[@class='text-sm font-medium text-white px-3 py-2 rounded-lg transition-colors cursor-pointer']")).click();
 			driver.findElement(By.id("name")).sendKeys("Rial S");
 			driver.findElement(By.id("email")).sendKeys("abgfd746@fentaoba.com");
 			driver.findElement(By.id("password")).sendKeys("Role@123");
@@ -75,7 +76,7 @@ public class Normal_approach {
 			test.fail("Navigation_failed");
 		}
 		finally {
-		extent.flush();
+		//extent.flush();
 		driver.quit();
 		}
 }}

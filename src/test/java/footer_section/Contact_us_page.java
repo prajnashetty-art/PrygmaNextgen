@@ -132,7 +132,7 @@ public class Contact_us_page {
 				driver.findElement(By.xpath("//textarea[@placeholder='Type your message']")).sendKeys("Need to to know about the courses you offer");
 				driver.findElement(By.xpath("//button[@type='submit']")).click();
 				
-				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+				wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 				WebElement toastMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section/ol/li/div[2]/div")));
 				String messageText = toastMessage.getText();
 				Assert.assertEquals(messageText, "Thank you for your message. We'll get back to you soon!");

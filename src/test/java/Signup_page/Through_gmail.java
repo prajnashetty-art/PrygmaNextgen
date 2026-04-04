@@ -14,7 +14,7 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
  
 public class Through_gmail {
- 
+  
 	public static void main(String[] args) throws InterruptedException {
 		 
 		String projectpath=System.getProperty("user.dir");
