@@ -12,6 +12,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
+<<<<<<< HEAD
 import Signupsigncourses.ExcelUtil;
 
 public class data_driven {
@@ -26,6 +27,21 @@ public class data_driven {
 		String projectpath=System.getProperty("user.dir");
 		extent=new ExtentReports();
 		ExtentSparkReporter spark=new ExtentSparkReporter(projectpath+"/Reports/Report_13.html");
+=======
+import Courses.ExcelUtil;
+
+public class data_driven {
+ 
+	public static void main(String[] args) throws IOException {
+ 
+		WebDriver driver;
+		ExtentReports extent;
+		ExtentTest test; 
+		
+		String projectpath=System.getProperty("user.dir");
+		extent=new ExtentReports();
+		ExtentSparkReporter spark=new ExtentSparkReporter(projectpath+"/Reports/Report_5.html");
+>>>>>>> temp-branch
 		spark.config().setTheme(Theme.STANDARD);
 		spark.config().setDocumentTitle("data_driven_approach");
 		extent.attachReporter(spark);
@@ -44,7 +60,11 @@ public class data_driven {
 		
 		try {
 			driver.get("https://www.prygmanextgen.com/signin");
+<<<<<<< HEAD
 			driver.findElement(By.xpath("/html/body/div[1]/nav/div/div/div[2]/div[5]/div/div[1]")).click();
+=======
+			driver.findElement(By.xpath("/html/body/div[1]/nav/div/div/div[2]/div[5]/div/div[1]")).click();//link
+>>>>>>> temp-branch
 			driver.findElement(By.id("email")).sendKeys(email);
 			driver.findElement(By.id("password")).sendKeys(password);
 			driver.findElement(By.id("remember-me")).click();
@@ -53,15 +73,26 @@ public class data_driven {
 			System.out.println("Login successful");
 			test.pass("Login successful");
 		}
+<<<<<<< HEAD
 		catch (Exception e)
 		{
+=======
+		catch(Exception e){
+>>>>>>> temp-branch
 			System.out.println("Login failed");
 			test.fail("Login failed");
 		}finally {
 			driver.quit();
 		}
+<<<<<<< HEAD
 		}
 		excel.close();
 		extent.flush();
 		}
+=======
+	}
+		excel.close();
+		extent.flush();
+  }
+>>>>>>> temp-branch
 }

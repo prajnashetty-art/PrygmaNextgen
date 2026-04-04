@@ -19,12 +19,22 @@ public class using_testng {
 	WebDriver driver;
 	ExtentReports extent;
 	ExtentTest test;
+<<<<<<< HEAD
 	
 	@BeforeMethod
 	public void setup() throws Exception
 	{
 		extent=new ExtentReports();
 		ExtentSparkReporter spark=new ExtentSparkReporter("Report_3.html");
+=======
+ 
+	@BeforeMethod
+	public void setup() throws Exception
+	{ 
+		String projectpath=System.getProperty("user.dir");
+		extent=new ExtentReports();
+		ExtentSparkReporter spark=new ExtentSparkReporter(projectpath+"/Reports/Report_3.html");
+>>>>>>> temp-branch
 		spark.config().setTheme(Theme.STANDARD);
 		spark.config().setDocumentTitle("Login_using_testNG");
 		extent.attachReporter(spark);
@@ -37,10 +47,11 @@ public class using_testng {
 		driver.get("https://www.prygmanextgen.com/");
 		driver.navigate().to("https://www.prygmanextgen.com/signin");
 	}
-	@Test
+	@Test 
 	public void inputcredentials()
 	{
 		try {
+<<<<<<< HEAD
 		driver.findElement(By.id("email")).sendKeys("gocoxir121@fentaoba.com");
 		driver.findElement(By.id("password")).sendKeys("goco@123");
 		driver.findElement(By.id("remember-me")).click();
@@ -50,6 +61,16 @@ public class using_testng {
 		}
 		catch(Exception e)
 		{
+=======
+			driver.findElement(By.id("email")).sendKeys("gocoxir121@fentaoba.com");
+			driver.findElement(By.id("password")).sendKeys("goco@123");
+			driver.findElement(By.id("remember-me")).click();
+			driver.findElement(By.xpath("//button[@type='submit']")).click();
+			System.out.println("Logged in successfully");
+			test.pass("Logged in successfully");
+		}
+		catch(Exception e){
+>>>>>>> temp-branch
 			System.out.println("Login failed");
 			test.fail("Login failed");
 		}

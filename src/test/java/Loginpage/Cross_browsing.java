@@ -20,6 +20,7 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class Cross_browsing {
+<<<<<<< HEAD
 
 	WebDriver driver;
 	ExtentReports extent;
@@ -30,6 +31,19 @@ public class Cross_browsing {
 	{
 		extent=new ExtentReports();
 		ExtentSparkReporter spark=new ExtentSparkReporter("Report_2.html");
+=======
+  
+	WebDriver driver;
+	ExtentReports extent;
+	ExtentTest test;
+ 
+	@BeforeMethod
+	public void attachreport()
+	{
+		String projectpath=System.getProperty("user.dir");
+		extent=new ExtentReports();
+		ExtentSparkReporter spark=new ExtentSparkReporter(projectpath+"/Reports/Report_2.html");
+>>>>>>> temp-branch
 		spark.config().setTheme(Theme.STANDARD);
 		spark.config().setDocumentTitle("Login_crossbrowsing_approach");
 		extent.attachReporter(spark);
@@ -49,6 +63,7 @@ public class Cross_browsing {
 			{
 			driver=new EdgeDriver();
 			}
+<<<<<<< HEAD
 		try
 		{
 		driver.manage().window().maximize();
@@ -64,6 +79,21 @@ public class Cross_browsing {
 		}
 		catch(Exception e)
 		{
+=======
+		try{
+			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+			driver.get("https://www.prygmanextgen.com/");
+			driver.navigate().to("https://www.prygmanextgen.com/signin");
+			driver.findElement(By.id("email")).sendKeys("gocoxir121@fentaoba.com");
+			driver.findElement(By.id("password")).sendKeys("Goco@123");
+			driver.findElement(By.id("remember-me")).click();
+			driver.findElement(By.xpath("//button[@type='submit']")).click();
+			System.out.println("Logged in successfully");
+			test.pass("Logged in successfully");
+			}
+		catch(Exception e){
+>>>>>>> temp-branch
 			System.out.println("Login failed");
 			test.fail("Login failed");
 		}
@@ -77,5 +107,12 @@ public class Cross_browsing {
 			extent.flush();
 		}
 }
+<<<<<<< HEAD
+=======
+		
+			
+				
+		
+>>>>>>> temp-branch
 
 		 

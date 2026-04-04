@@ -15,24 +15,39 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 public class Normal_approach {
 
 	public static void main(String[] args) throws Exception {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
 
 		ExtentReports extent=new ExtentReports();
 		ExtentSparkReporter spark=new ExtentSparkReporter("Report_4.html");
+=======
+		
+		String projectpath=System.getProperty("user.dir");
+		ExtentReports extent=new ExtentReports();
+		ExtentSparkReporter spark=new ExtentSparkReporter(projectpath+"/Reports/Report_6.html");
+>>>>>>> temp-branch
 		spark.config().setTheme(Theme.STANDARD);
 		spark.config().setDocumentTitle("Signp_normal_approach");
 		extent.attachReporter(spark);
 		
 		ExtentTest test=extent.createTest("Signp_normal_approach");
 		ChromeDriver driver=new ChromeDriver();
+<<<<<<< HEAD
 		try
 		{
+=======
+		try{
+>>>>>>> temp-branch
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 			driver.get("https://www.prygmanextgen.com/");
 			driver.navigate().to("https://www.prygmanextgen.com/signup");
 			driver.findElement(By.id("name")).sendKeys("Dia K");
+<<<<<<< HEAD
 			driver.findElement(By.id("email")).sendKeys("rolelef805@fentaoba.com");
+=======
+			driver.findElement(By.id("email")).sendKeys("roleg805@fentaoba.com");
+>>>>>>> temp-branch
 			driver.findElement(By.id("password")).sendKeys("Role@123");
 			driver.findElement(By.id("confirmPassword")).sendKeys("Role@123");
 			Thread.sleep(2000);
@@ -47,8 +62,12 @@ public class Normal_approach {
 			System.out.println("Registered successfully");
 			test.pass("Registered successfully");
 		}
+<<<<<<< HEAD
 		catch(Exception e)
 		{
+=======
+		catch(Exception e){
+>>>>>>> temp-branch
 			System.out.println("Sign_up unsuccessful");
 			test.fail("Sign_up unsuccessful");
 		}
@@ -56,5 +75,9 @@ public class Normal_approach {
 			driver.quit();
 			extent.flush();
 		}
+<<<<<<< HEAD
 		}
+=======
+	}
+>>>>>>> temp-branch
 }

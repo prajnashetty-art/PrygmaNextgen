@@ -12,7 +12,11 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
+<<<<<<< HEAD
 import Signupsigncourses.ExcelUtil;
+=======
+import Courses.ExcelUtil;
+>>>>>>> temp-branch
 
 public class Datadriven {
 
@@ -35,8 +39,12 @@ public class Datadriven {
 		
 		for(int i=1; i<=excel.getRowCount(); i++)
 		{
+<<<<<<< HEAD
 			String email=excel.getCellData(i, 0);
 			
+=======
+			String email=excel.getCellData(i, 0); 
+>>>>>>> temp-branch
 			driver=new ChromeDriver();
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(9));
@@ -55,7 +63,11 @@ public class Datadriven {
 			{
 				System.out.println("navigation unsuccessful");
 			}
+<<<<<<< HEAD
 			driver.findElement(By.id("email")).sendKeys("vojibaw786@iaciu.com");
+=======
+			driver.findElement(By.id("email")).sendKeys(email);
+>>>>>>> temp-branch
 			driver.findElement(By.xpath("//button[@type='submit']")).click();
 			String pagemsg=driver.findElement(By.cssSelector(".text-sm.font-medium.text-green-800")).getText();
 			System.out.println(pagemsg);

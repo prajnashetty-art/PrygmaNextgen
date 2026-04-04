@@ -26,8 +26,14 @@ public class Crossbrowsers {
 		@BeforeMethod
 		public void report()
 		{
+<<<<<<< HEAD
 			extent=new ExtentReports();
 			ExtentSparkReporter spark=new ExtentSparkReporter("Report_5.html");
+=======
+			String projectpath=System.getProperty("user.dir");
+			extent=new ExtentReports();
+			ExtentSparkReporter spark=new ExtentSparkReporter(projectpath+"/Reports/Report_7.html");
+>>>>>>> temp-branch
 			spark.config().setTheme(Theme.STANDARD);
 			spark.config().setDocumentTitle("Signup_crossbrowsing_approach");
 			extent.attachReporter(spark);
@@ -52,7 +58,11 @@ public class Crossbrowsers {
 				driver.get("https://www.prygmanextgen.com/");
 				driver.navigate().to("https://www.prygmanextgen.com/signup");
 				driver.findElement(By.id("name")).sendKeys("Dia K");
+<<<<<<< HEAD
 				driver.findElement(By.id("email")).sendKeys("rolel805@fentaoba.com");
+=======
+				driver.findElement(By.id("email")).sendKeys("rolghl805@fentaoba.com");
+>>>>>>> temp-branch
 				driver.findElement(By.id("password")).sendKeys("Role@123");
 				driver.findElement(By.id("confirmPassword")).sendKeys("Role@123");
 				Thread.sleep(2000);

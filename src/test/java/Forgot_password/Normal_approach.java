@@ -42,7 +42,11 @@ public class Normal_approach {
 		{
 			System.out.println("navigation unsuccessful");
 		}
+
 		driver.findElement(By.id("email")).sendKeys("vojibaw786@iaciu.com");
+
+		driver.findElement(By.id("email")).sendKeys("vojibw786@iaciu.com");
+
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
 		String pagemsg=driver.findElement(By.cssSelector(".text-sm.font-medium.text-green-800")).getText();
 		System.out.println(pagemsg);

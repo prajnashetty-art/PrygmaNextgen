@@ -17,7 +17,11 @@ public class CoursesMaterialsworkshopsJobsportal {
 
 		String projectpath=System.getProperty("user.dir");
 		ExtentReports extent=new ExtentReports();
+<<<<<<< HEAD
 		ExtentSparkReporter spark=new ExtentSparkReporter(projectpath+"/Reports/Report_11.html");
+=======
+		ExtentSparkReporter spark=new ExtentSparkReporter(projectpath+"/Reports/Report_13.html");
+>>>>>>> temp-branch
 		spark.config().setTheme(Theme.STANDARD);
 		spark.config().setDocumentTitle("Naviagation");
 		extent.attachReporter(spark);
