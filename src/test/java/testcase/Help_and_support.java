@@ -317,13 +317,11 @@ public class Help_and_support {
 	        }
 	    }
 	   @AfterMethod
-	   public void exit()
-	   {
+	   public void exit() {
 		   driver.quit();
 	   }
 	   @AfterClass
-	   public void generatereport()
-	   {
+	   public void generatereport() {
 		   extent.flush();
 	   }
 }
