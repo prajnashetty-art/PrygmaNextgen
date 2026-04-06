@@ -82,36 +82,6 @@ public class Signup_Signout_Signin_FlowTest {
 		System.out.println("Logged in successfully");
 		test.pass("Logged in successfully");
 	}
-/*
- * <properties>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
-  </properties>
-
-  <build>
- 	 <plugins>
-  		<plugin>
-  <groupId>org.apache.maven.plugins</groupId>
-  <artifactId>maven-compiler-plugin</artifactId>
-  <version>4.0.0-beta-4</version>
-  <configuration>
-    <source>17</source>
-    <target>17</target>
-  </configuration>
-</plugin>
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-surefire-plugin</artifactId>
-      <version>3.5.5</version>
-      <configuration>
-          <suiteXmlFiles>
-          <suiteXmlFile>testng.xml</suiteXmlFile>
-        </suiteXmlFiles>
-      </configuration>
-    </plugin>
-    </plugins>
-    </build>
-    */
 
 	@AfterClass
 	public void teardown() {
