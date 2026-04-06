@@ -45,7 +45,7 @@ public class Privacy_policy {
 	      driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
 	      driver.get("https://www.prygmanextgen.com/privacy");
 	      WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(8));
-	        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[contains(normalize-space(),'Privacy Policy')]")));
+	      wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[contains(normalize-space(),'Privacy Policy')]")));
 	    }  
 	    @Test(priority = 1)
 	    public void verifyPageLoad() {
