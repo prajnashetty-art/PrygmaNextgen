@@ -17,6 +17,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -36,7 +37,7 @@ public class Course_page_tests {
 		  //Modified
 		  String projectPath = System.getProperty("user.dir");
 	      extent = new ExtentReports();
-	      spark = new ExtentSparkReporter(projectPath + "/Reports/Coursepage_Report.html");
+	      spark = new ExtentSparkReporter(projectPath + "/Reports/Coursepage1_Report.html");
 	      spark.config().setTheme(Theme.STANDARD);
 	      spark.config().setDocumentTitle("Course Page Automation Report");
 	      extent.attachReporter(spark); 
@@ -49,7 +50,8 @@ public class Course_page_tests {
 	       driver.manage().window().maximize();
 	       driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
 	       driver.get("https://www.prygmanextgen.com/courses");
-	       Thread.sleep(4000);  
+	       WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	       wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[normalize-space()='Explore our courses']"))); 
 	   }
 	    @Test(priority = 1)
 	    public void verifyPageLoad()
@@ -57,7 +59,7 @@ public class Course_page_tests {
 	       test = extent.createTest("Course page loads");
 	       String currentUrl = driver.getCurrentUrl();
 	       try {
-	        Assert.assertTrue(currentUrl.contains("/course"));
+	        Assert.assertTrue(currentUrl.contains("/courses"));
 	        System.out.println("Course page loaded successfully");
 	        test.pass("Course page loaded successfully");
 	    }catch (AssertionError e)
@@ -83,7 +85,6 @@ public class Course_page_tests {
 		        throw e;
 	        }
 	    }
-	    
 	    @Test(priority = 3)
 	    public void verifyHeader() 
 	    {
@@ -218,7 +219,41 @@ public class Course_page_tests {
 	            throw e;
 	        }
 	    }
-	  
+	   // DataProvider with expected course names and prices
+	    @DataProvider(name = "courseData")
+	    public Object[][] courseData() {
+	    	Object[][] data=new Object[4][2];
+			data[0][0]="Manual Testing Masterclass";
+			data[0][1]="₹499";
+			
+			data[1][0]="MySQL Database Masterclass";
+			data[1][1]="₹599";
+			
+			data[2][0]="API Testing Masterclass";
+			data[2][1]="₹644";
+			
+			data[3][0]="Full Stack QA Program";
+			data[3][1]="₹39,999";
+			return data; 
+	    }
+	    @Test(dataProvider = "courseData")
+	    public void validateCoursePrice(String courseName, String expectedPrice) {
+	    	test = extent.createTest("Validate course price for " + courseName);
+	        try {
+	            WebElement coursename = driver.findElement(By.xpath("//h3[normalize-space()='" + courseName + "']"));
+	            String actualPrice = driver.findElement(By.xpath("//span[normalize-space()='" + expectedPrice + "']")).getText().trim();
+	            System.out.println("Course: " + courseName + " | Price: " + actualPrice);
+
+	            Assert.assertEquals(actualPrice, expectedPrice);
+	            System.out.println("Course '" + courseName + "' has the expected price: " + expectedPrice);
+	            test.pass("Course '" + courseName + "' has the expected price: " + expectedPrice);
+	        } catch (AssertionError e) {
+	        	System.out.println("Failed to validate price for course");
+	        	test.fail("Failed to validate price for course");
+	            throw e;
+	        }
+	    }
+	     
 	    @AfterMethod 
 	    public void tearDown() 
 	    {
