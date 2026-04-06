@@ -132,14 +132,11 @@ public class Blog {
 		        }
 		    }
 	    @AfterMethod
-	    public void tearDown() 
-	    {
+	    public void tearDown() {
 	        driver.quit();
 	    }
-
 	    @AfterClass
-	    public void generateReport()
-	    {
+	    public void generateReport() {
 	        extent.flush();
 	    }
 	}
