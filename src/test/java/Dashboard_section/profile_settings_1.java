@@ -21,7 +21,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
-public class profile_settings {
+public class profile_settings_1 {
 
 		WebDriver driver;
 		ExtentReports extent;
