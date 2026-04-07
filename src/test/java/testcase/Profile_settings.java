@@ -228,12 +228,25 @@ public void uploadavatar() {
 		throw e;
 	}
 }
-	@AfterMethod
-	public void teardown() {
+@Test(priority=11)
+public void verifyNavigationToProfileSettings() {
+    ExtentTest test = extent.createTest("Verify Navigation to Profile Settings");
+    String expectedUrl = "https://www.prygmanextgen.com/dashboard/profile";
+    String actualUrl = driver.getCurrentUrl();
+    try {
+        Assert.assertEquals(actualUrl, expectedUrl);
+        test.pass("Navigation to Profile Settings successful");
+    }catch (AssertionError e) {
+        test.fail("Navigation to Profile Settings failed");
+        throw e;
+    }
+}
+@AfterMethod
+public void teardown() {
 		driver.quit();
-	}
-	@AfterClass
-	public void reportgenerate(){
-		extent.flush();
+}
+@AfterClass
+public void reportgenerate(){
+	extent.flush();
 	}
 }
