@@ -31,19 +31,6 @@ public class Using_Testng {
 	ExtentReports extent;
 	ExtentTest test;
 	
-<<<<<<< HEAD
-	@BeforeMethod
-	public void setup() 
-	{
-		extent=new ExtentReports();
-		ExtentSparkReporter spark=new ExtentSparkReporter("Report_6.html");
-		spark.config().setTheme(Theme.STANDARD);
-		spark.config().setDocumentTitle("Signup_using_TestNG");
-		extent.attachReporter(spark);
-		
-		test=extent.createTest("Signup_testNG_approach");
-		
-=======
 	@BeforeClass
 	public void reportsetup() {
 		String projectpath=System.getProperty("user.dir");
@@ -55,42 +42,12 @@ public class Using_Testng {
 	}
 	@BeforeMethod
 	public void setup() {
->>>>>>> temp-branch
 		driver=new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();
 		driver.get("https://www.prygmanextgen.com/");
 		driver.navigate().to("https://www.prygmanextgen.com/signup");
 	}
-<<<<<<< HEAD
-	@Test
-	public void inputdata() throws InterruptedException
-	{
-		try {
-			driver.findElement(By.id("name")).sendKeys("Dia K");
-			driver.findElement(By.id("email")).sendKeys("rolelef804@fentaoba.com");
-			driver.findElement(By.id("password")).sendKeys("Role@123");
-			driver.findElement(By.id("confirmPassword")).sendKeys("Role@123000");
-			//Thread.sleep(2000);
-			JavascriptExecutor js=(JavascriptExecutor)driver;
-			WebElement element=driver.findElement(By.xpath("//button[@type='submit']"));
-			js.executeScript("arguments[0].scrollIntoView();", element);
-		//	Thread.sleep(2000);
-			driver.findElement(By.xpath("//input[@id='terms']")).click();
-			driver.findElement(By.xpath("//button[@type='submit']")).click();
-			System.out.println("Registered successfully");
-			test.pass("Registered successfully");
-		}
-		catch (Exception e)
-		{
-			System.out.println("Signup unsuccesssful");
-			test.fail("Signup unsuccesssful");
-		}
-	}
-	@AfterMethod
-	public void result()
-	{
-=======
 	@Test(priority=1)
 	public void inputdata() throws Exception {
 	    test = extent.createTest("Verify Sign Up with valid inputs");
@@ -331,7 +288,6 @@ public class Using_Testng {
     } 
     @AfterMethod
 	public void result(){
->>>>>>> temp-branch
 		driver.quit();
 		extent.flush();
 	}

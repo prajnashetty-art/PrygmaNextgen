@@ -18,25 +18,21 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class dashboard {
-
 	WebDriver driver;
 	ExtentReports extent;
 	ExtentTest test;
 	ExtentSparkReporter spark;
-	
-	@BeforeClass
-	public void reportsetup()
-	{
+@BeforeClass
+public void reportsetup() {
 		String projectpath=System.getProperty("user.dir");
-		spark=new ExtentSparkReporter(projectpath+"/Reports/Report_17.html");
+		spark=new ExtentSparkReporter(projectpath+"/Reports/Dashboard.html");
 		extent=new ExtentReports();
 		spark.config().setTheme(Theme.STANDARD);
 		spark.config().setDocumentTitle("Dashbaord_functionality");
 		extent.attachReporter(spark);
 	}
-	@BeforeMethod
-	public void setup() throws InterruptedException
-	{
+@BeforeMethod
+public void setup() throws InterruptedException {
 		driver=new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
@@ -48,40 +44,37 @@ public class dashboard {
 		System.out.println("Login successful");
 		Thread.sleep(5000);
 	}
-	@Test
-	public void verifyurl()
-	{
+@Test
+public void verifyurl() {
 		test=extent.createTest("Verify dashboard URL");
 		String expectedurl="https://www.prygmanextgen.com/dashboard";
 		String actualurl=driver.getCurrentUrl();
 		try {
-		Assert.assertEquals(actualurl, expectedurl);
-		System.out.println("URL is matching");
-		test.pass("URL is matching");
+			Assert.assertEquals(actualurl, expectedurl);
+			System.out.println("URL is matching");
+			test.pass("URL is matching");
 		}catch(AssertionError e) {
 		System.out.println("Actual URL is not matching with the expected URL");
 		test.fail("Actual URL is not matching with the expected URL");
 		throw e;
 		}
 	}
-	@Test
-	public void verifytitle()
-	{
+@Test
+public void verifytitle() {
 		test=extent.createTest("Verify dashboard title");
 		String actualtitle=driver.getTitle();
 		try {
-		Assert.assertTrue(actualtitle.contains("My Courses"));
-		System.out.println("Title is correct");
-		test.pass("Title is correct");
+			Assert.assertTrue(actualtitle.contains("My Courses"));
+			System.out.println("Title is correct");
+			test.pass("Title is correct");
 		}catch (AssertionError e) {
 		System.out.println("Actual title is not matching with the expected title");
 		test.fail("Actual title is not matching with the expected title");
 		throw e;
 		}
 	}
-	@Test
-	public void tomypurchases()
-	{
+@Test
+public void tomypurchases() {
 		test=extent.createTest("Verify Navigation to My Purchases");
 		driver.findElement(By.linkText("My Purchases")).click();
 		String exppurchaseurl="https://www.prygmanextgen.com/dashboard/purchases";
@@ -95,11 +88,9 @@ public class dashboard {
 			test.fail("Navigation to my purchases page failed");
 			throw e;
 		}
-		
 	}
-	@Test
-	public void toprofilesettings()
-	{
+@Test
+public void toprofilesettings() {
 		test=extent.createTest("Verify naviagtion to profile settings");
 		driver.findElement(By.linkText("Profile Settings")).click();
 		String expectedprofileurl="https://www.prygmanextgen.com/dashboard/profile";
@@ -113,9 +104,8 @@ public class dashboard {
 			throw e;
 		}
 	}
-	@Test
-	public void tohelpcenter()
-	{
+@Test
+public void tohelpcenter() {
 		test=extent.createTest("Verify naviagtion to Help Center");
 		driver.findElement(By.linkText("Help Center")).click();
 		String expectedhelpurl="https://www.prygmanextgen.com/help";
@@ -130,9 +120,8 @@ public class dashboard {
 			throw e;
 		}
 	}
-	@Test
-	public void logout() throws InterruptedException
-	{
+@Test
+public void logout() throws InterruptedException {
 		test=extent.createTest("Verify sign out link");
 		driver.findElement(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/nav[1]/div[1]/button[1]")).click();
 		Thread.sleep(2000);
@@ -142,25 +131,18 @@ public class dashboard {
 			Assert.assertEquals(acturl, expurl);
 		    System.out.println("Naviagated back to homepage after logout");
 		    test.pass("Naviagated back to homepage after logout");
-		}catch(AssertionError e)
-		{
+		}catch(AssertionError e) {
 			System.out.println("Failed to naviagte back to home page after logout");
 			test.fail("Failed to naviagte back to home page after logout");
 			throw e;
 		}
 	}
-	@AfterMethod
-	public void teardown()
-	{
+@AfterMethod
+public void teardown() {
 		driver.quit();
 	}
-	@AfterClass
-	public void reportgenerate()
-	{
+@AfterClass
+public void reportgenerate() {
 		extent.flush();
 	}
-	
-
-	
-
 }

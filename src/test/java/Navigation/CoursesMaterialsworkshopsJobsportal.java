@@ -29,6 +29,7 @@ public class CoursesMaterialsworkshopsJobsportal {
 		try{
 			driver.get("https://www.prygmanextgen.com/");
 			driver.findElement(By.xpath("/html/body/div[1]/nav/div/div/div[2]/div[1]")).click();
+		//	driver.findElement(By.xpath("//div[@class='text-sm lg:text-base font-medium transition-colors whitespace-nowrap px-1 lg:px-0 cursor-pointer text-white/80 hover:text-white'][normalize-space()='Course']"));
 			System.out.println("Navigated to Courses page");
 			test.pass("Navigated to Courses page");
 			Thread.sleep(2000);
@@ -37,10 +38,12 @@ public class CoursesMaterialsworkshopsJobsportal {
 			test.pass("Navigated to Materials page");
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("/html[1]/body[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[3]")).click();
+		//	driver.findElement(By.xpath("//div[@class='text-sm lg:text-base font-medium transition-colors whitespace-nowrap px-1 lg:px-0 cursor-pointer text-white/80 hover:text-white'][normalize-space()='Workshops']")).click();
 			System.out.println("Navigated to Workshops page");
 			test.pass("Navigated to Workshops page");
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("/html/body/div[1]/nav/div/div/div[2]/div[4]")).click();
+		//	driver.findElement(By.xpath("//div[@class='text-sm lg:text-base font-medium transition-colors whitespace-nowrap px-1 lg:px-0 cursor-pointer text-white/80 hover:text-white'][normalize-space()='Jobs Portal']")).click();
 			System.out.println("Navigated to Jobs Portal page");
 			test.pass("Navigated to Jobs Portal page");
 			Thread.sleep(2000);

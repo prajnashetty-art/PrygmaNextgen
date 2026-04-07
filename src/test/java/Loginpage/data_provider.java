@@ -19,24 +19,15 @@ public class data_provider {
 
 	WebDriver driver;
 	ExtentReports extent;
-<<<<<<< HEAD
 	ExtentTest test;
 	
-	@BeforeClass
-=======
-	ExtentTest test; 
 	 
 	@BeforeClass 
->>>>>>> temp-branch
 	public void setup()
 	{
 		String projectpath=System.getProperty("user.dir");
 		extent=new ExtentReports();
-<<<<<<< HEAD
 		ExtentSparkReporter spark=new ExtentSparkReporter(projectpath+"/Reports/Report_12.html");
-=======
-		ExtentSparkReporter spark=new ExtentSparkReporter(projectpath+"/Reports/Report_4.html");
->>>>>>> temp-branch
 		spark.config().setTheme(Theme.STANDARD);
 		spark.config().setDocumentTitle("Signin_using_dataprovider");
 		extent.attachReporter(spark);
@@ -61,27 +52,16 @@ public class data_provider {
 	public Object[][] passdata()
 	{
 		Object[][] data=new Object[3][2];
-<<<<<<< HEAD
 		data[0][0]="fofikec4135@fentaoba.com";
 		data[0][1]="fofi@457";
 		
-		data[1][0]="nitihin5112@iaciu.com";
-=======
-		data[0][0]="fofik4135@fentaoba.com";
-		data[0][1]="fofi@457";
-		
 		data[1][0]="nitih5112@iaciu.com";
->>>>>>> temp-branch
 		data[1][1]="niti#789";
 		
 		data[2][0]="tevoxe69294@fentaoba.com";
 		data[2][1]="teco@699";
 		return data;
-<<<<<<< HEAD
 	}
-=======
-	} 
->>>>>>> temp-branch
 	@AfterClass
 	public void tearDown()
 	{

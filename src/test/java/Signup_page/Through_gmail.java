@@ -12,7 +12,6 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-<<<<<<< HEAD
 
 public class Through_gmail {
 
@@ -20,17 +19,8 @@ public class Through_gmail {
 		// TODO Auto-generated method stub
 
 		ExtentReports extent=new ExtentReports();
-		ExtentSparkReporter spark=new ExtentSparkReporter("Report_10.html");
-=======
- 
-public class Through_gmail {
-  
-	public static void main(String[] args) throws InterruptedException {
-		 
 		String projectpath=System.getProperty("user.dir");
-		ExtentReports extent=new ExtentReports();
 		ExtentSparkReporter spark=new ExtentSparkReporter(projectpath+"/Reports/Report_8.html");
->>>>>>> temp-branch
 		spark.config().setTheme(Theme.STANDARD);
 		spark.config().setDocumentTitle("Through_gmail");
 		extent.attachReporter(spark);
@@ -45,28 +35,21 @@ public class Through_gmail {
 		Thread.sleep(3000);
 		Set<String> windowshandle=driver.getWindowHandles();
 		Iterator<String> iterator=windowshandle.iterator();
-<<<<<<< HEAD
 		
-=======
-		 
->>>>>>> temp-branch
 		String parentwindow=iterator.next();
 		String childwindow=iterator.next();
 		driver.switchTo().window(childwindow);
-		
-<<<<<<< HEAD
+
 		driver.findElement(By.xpath("//*[@id='identifierId']")).sendKeys("e-mail id");
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//span[normalize-space()='Next']")).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//input[@name='Passwd']")).sendKeys("password");
-=======
 		driver.findElement(By.xpath("//*[@id='identifierId']")).sendKeys("Enter email id");
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//span[normalize-space()='Next']")).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//input[@name='Passwd']")).sendKeys("Enter password");
->>>>>>> temp-branch
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//span[normalize-space()='Next']")).click();
 		

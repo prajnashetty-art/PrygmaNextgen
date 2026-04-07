@@ -63,15 +63,15 @@ public class dataprovider {
 	public Object[][] passdata()
 	{
 		Object[][] data=new Object[3][1];
-<<<<<<< HEAD
+
 		data[0][0]="wiwoci9214@iaciu.com";
 		data[1][0]="digoka8999@fentaoba.com";
 		data[2][0]="gorixik824@iaciu.com";
-=======
+
 		data[0][0]="wiwoci914@iaciu.com";
 		data[1][0]="digoka999@fentaoba.com";
 		data[2][0]="gorixi824@iaciu.com";
->>>>>>> temp-branch
+
 		return data;
 	}
 	@AfterClass

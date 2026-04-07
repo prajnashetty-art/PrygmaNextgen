@@ -28,8 +28,8 @@ public class Demo_TC_1 {
 		    	String confirmpassword = System.getenv("confirmpassword");
 		    	driver.findElement(By.id("name")).sendKeys("Dia K");
 		        driver.findElement(By.id("email")).sendKeys("rotweyt@f8entaoba.com");
-		        driver.findElement(By.id("password")).sendKeys("Role@123");
-		        driver.findElement(By.id("confirmPassword")).sendKeys("Role@123");
+		        driver.findElement(By.id("password")).sendKeys(password);
+		        driver.findElement(By.id("confirmPassword")).sendKeys(confirmpassword);
 		        JavascriptExecutor js=(JavascriptExecutor) driver;
 		        js.executeScript("window.scrollBy(0,300)", "");
 		        Thread.sleep(1000);

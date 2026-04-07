@@ -24,15 +24,13 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class AboutUs {
-
 	  WebDriver driver;
 	  ExtentReports extent;
 	  ExtentSparkReporter spark;
 	  ExtentTest test;
 	  WebDriverWait wait;
-
 	  @BeforeClass
-	  public void reportSetup(){
+	  public void reportSetup(){	  
 		  String projectPath = System.getProperty("user.dir");
 	      extent = new ExtentReports();
 	      spark = new ExtentSparkReporter(projectPath + "/Reports/AboutUs_Report.html");
