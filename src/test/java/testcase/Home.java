@@ -183,10 +183,8 @@ public class Home {
 	    	Object[][] data=new Object[3][2];
 			data[0][0]="Full Stack QA Program";
 			data[0][1]="₹39999";
-			
 			data[1][0]="Manual Testing Masterclass";
 			data[1][1]="₹499";
-			
 			data[2][0]="API Testing Masterclass";
 			data[2][1]="₹644";
 			return data;
